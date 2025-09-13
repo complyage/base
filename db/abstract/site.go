@@ -5,9 +5,10 @@ package abstract
 //||------------------------------------------------------------------------------------------------||
 
 import (
-	"base/db/models"
-	"base/oauth"
 	"fmt"
+
+	"github.com/complyage/base/db/models"
+	"github.com/complyage/base/oauth"
 
 	"github.com/ralphferrara/aria/app"
 )

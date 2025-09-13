@@ -1,9 +1,10 @@
 package verify
 
 import (
-	"base/db/models"
 	"encoding/json"
 	"fmt"
+
+	"github.com/complyage/base/db/models"
 )
 
 //||------------------------------------------------------------------------------------------------||

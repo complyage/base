@@ -1,7 +1,7 @@
 package ips
 
 import (
-	"base/db/models"
+	"github.com/complyage/base/db/models"
 )
 
 //||------------------------------------------------------------------------------------------------||

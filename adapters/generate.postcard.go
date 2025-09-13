@@ -1,13 +1,14 @@
 package adapters
 
 import (
-	"base/verify"
 	"bytes"
 	"fmt"
 	"image/png"
 	"os"
 	"path/filepath"
 	"time"
+
+	"github.com/complyage/base/verify"
 
 	"github.com/fogleman/gg"
 	"github.com/skip2/go-qrcode"

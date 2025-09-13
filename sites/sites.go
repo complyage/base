@@ -5,8 +5,8 @@ import (
 	"sync"
 	"time"
 
-	"base/db/abstract"
-	"base/db/models"
+	"github.com/complyage/base/db/abstract"
+	"github.com/complyage/base/db/models"
 
 	"github.com/ralphferrara/aria/app"
 )

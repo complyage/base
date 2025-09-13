@@ -7,7 +7,6 @@
 package adapters
 
 import (
-	"base/verify"
 	"bytes"
 	"encoding/json"
 	"fmt"
@@ -16,6 +15,8 @@ import (
 	"net/http"
 	"os"
 	"path/filepath"
+
+	"github.com/complyage/base/verify"
 )
 
 //||------------------------------------------------------------------------------------------------||

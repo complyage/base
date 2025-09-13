@@ -1,6 +1,6 @@
 package zones
 
-import "base/verify"
+import "github.com/complyage/base/verify"
 
 type ShortZone struct {
 	Law          string            `json:"laws,omitempty"`

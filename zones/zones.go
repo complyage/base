@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"strings"
 
-	"base/db/abstract"
-	"base/db/models"
-	"base/verify"
+	"github.com/complyage/base/db/abstract"
+	"github.com/complyage/base/db/models"
+	"github.com/complyage/base/verify"
 )
 
 //||------------------------------------------------------------------------------------------------||

@@ -1,10 +1,11 @@
 package abstract
 
 import (
-	"base/db/models"
-	"base/verify"
 	"encoding/json"
 	"fmt"
+
+	"github.com/complyage/base/db/models"
+	"github.com/complyage/base/verify"
 
 	"github.com/ralphferrara/aria/app"
 	"gorm.io/gorm"

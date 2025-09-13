@@ -1,4 +1,4 @@
-module complyage/base
+module github.com/complyage/base
 
 go 1.24.5
 
