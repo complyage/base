@@ -1,4 +1,6 @@
-package verify
+package identity
+
+import "github.com/complyage/base/types"
 
 //||------------------------------------------------------------------------------------------------||
 //|| Identity
@@ -13,13 +15,13 @@ type Identity struct {
 	//||------------------------------------------------------------------------------------------------||
 	//|| Areas
 	//||------------------------------------------------------------------------------------------------||
-	Address    IdentityRecord             `json:"ADDR,omitempty"`
-	CreditCard IdentityRecord             `json:"CRCD,omitempty"`
-	Email      IdentityRecord             `json:"MAIL,omitempty"`
-	Face       IdentityRecord             `json:"FACE,omitempty"`
-	IDCard     IdentityRecord             `json:"IDEN,omitempty"`
-	Phone      IdentityRecord             `json:"PHNE,omitempty"`
-	Usernames  map[int64]IdentityUsername `json:"usernames,omitempty"`
+	Address    IdentityRecord              `json:"ADDR"`
+	CreditCard IdentityRecord              `json:"CRCD"`
+	Email      IdentityRecord              `json:"MAIL"`
+	Face       IdentityRecord              `json:"FACE"`
+	IDCard     IdentityRecord              `json:"IDEN"`
+	Phone      IdentityRecord              `json:"PHNE"`
+	Usernames  map[string]IdentityUsername `json:"usernames"`
 }
 
 //||------------------------------------------------------------------------------------------------||
@@ -27,11 +29,11 @@ type Identity struct {
 //||------------------------------------------------------------------------------------------------||
 
 type IdentityRecord struct {
-	Verified     bool   `json:"verified"`
-	Age          int    `json:"age,omitempty"`
-	DOB          DOB    `json:"dob,omitempty"`
-	Display      string `json:"display,omitempty"`
-	Verification string `json:"verification,omitempty"`
+	Verified     bool      `json:"verified"`
+	Age          int       `json:"age,omitempty"`
+	DOB          types.DOB `json:"dob,omitempty"`
+	Display      string    `json:"display"`
+	Verification string    `json:"verification"`
 }
 
 //||------------------------------------------------------------------------------------------------||

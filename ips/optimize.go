@@ -15,7 +15,7 @@ func OptimizeSite(site models.Site) OptimizedSite {
 		Description: site.Description,
 		URL:         site.URL,
 		Redirect:    site.Redirect,
-		Permissions: site.Permissions,
+		Scopes:      site.Scopes,
 	}
 }
 

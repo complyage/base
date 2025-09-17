@@ -110,6 +110,7 @@ func FetchShortZoneByLocation(state, country string) (*ShortZone, bool) {
 	//|| Make Requirements Slice
 	//||------------------------------------------------------------------------------------------------||
 	shortZone := ShortZone{
+		ID:           int(zone.ID),
 		Law:          "",
 		Requirements: requirements,
 		Effective:    zone.Effective.String(),

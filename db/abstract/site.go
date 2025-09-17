@@ -19,13 +19,14 @@ import (
 
 func GetSiteByPublic(publicKey string) (models.Site, error) {
 	var s models.Site
-	if err := app.SQLDB["main"].DB.
+	err := app.SQLDB["main"].DB.
 		Where("site_public = ?", publicKey).
 		Where("site_status NOT IN ('RMVD','BNND')").
-		First(&s).Error; err != nil {
-		return s, err
+		First(&s).Error
+	if err == nil {
+		return s, nil
 	}
-	return models.Site{}, nil
+	return models.Site{}, err
 }
 
 //||------------------------------------------------------------------------------------------------||

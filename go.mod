@@ -5,7 +5,7 @@ go 1.24.5
 require (
 	github.com/fogleman/gg v1.3.0
 	github.com/google/uuid v1.6.0
-	github.com/ralphferrara/aria v0.0.0-20250912233723-2ea9989fe5df
+	github.com/ralphferrara/aria v0.0.0-20250917054147-6e3e09fbab46
 	github.com/skip2/go-qrcode v0.0.0-20200617195104-da1b6568686e
 	github.com/stripe/stripe-go/v82 v82.5.0
 	gorm.io/datatypes v1.2.6
@@ -54,6 +54,7 @@ require (
 	github.com/envoyproxy/go-control-plane/envoy v1.32.4 // indirect
 	github.com/envoyproxy/protoc-gen-validate v1.2.1 // indirect
 	github.com/felixge/httpsnoop v1.0.4 // indirect
+	github.com/fsnotify/fsnotify v1.4.9 // indirect
 	github.com/go-ini/ini v1.67.0 // indirect
 	github.com/go-jose/go-jose/v4 v4.0.5 // indirect
 	github.com/go-logr/logr v1.4.3 // indirect
@@ -79,6 +80,7 @@ require (
 	github.com/minio/md5-simd v1.1.2 // indirect
 	github.com/minio/minio-go/v7 v7.0.95 // indirect
 	github.com/montanaflynn/stats v0.7.1 // indirect
+	github.com/nyaruka/phonenumbers v1.6.5 // indirect
 	github.com/philhofer/fwd v1.2.0 // indirect
 	github.com/planetscale/vtprotobuf v0.6.1-0.20240319094008-0393e58bdf10 // indirect
 	github.com/rs/xid v1.6.0 // indirect
@@ -101,6 +103,7 @@ require (
 	go.opentelemetry.io/otel/sdk/metric v1.36.0 // indirect
 	go.opentelemetry.io/otel/trace v1.36.0 // indirect
 	golang.org/x/crypto v0.41.0 // indirect
+	golang.org/x/exp v0.0.0-20250305212735-054e65f0b394 // indirect
 	golang.org/x/image v0.31.0 // indirect
 	golang.org/x/net v0.43.0 // indirect
 	golang.org/x/oauth2 v0.30.0 // indirect

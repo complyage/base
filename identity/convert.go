@@ -1,18 +1,17 @@
-package verify
+package identity
 
 import (
 	"encoding/json"
 )
 
 //||------------------------------------------------------------------------------------------------||
-//|| LoadIdentityFromJSON
+//|| toJSON - Converts Identity struct to JSON string
 //||------------------------------------------------------------------------------------------------||
 
-func LoadIdentityFromJSON(data string) (Identity, error) {
-	var iden Identity
-	err := json.Unmarshal([]byte(data), &iden)
+func (i Identity) toJSON() (string, error) {
+	b, err := json.Marshal(i)
 	if err != nil {
-		return Identity{}, err
+		return "", err
 	}
-	return iden, nil
+	return string(b), nil
 }

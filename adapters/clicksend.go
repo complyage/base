@@ -16,7 +16,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/complyage/base/verify"
+	"github.com/complyage/base/types"
 )
 
 //||------------------------------------------------------------------------------------------------||
@@ -69,7 +69,7 @@ type ClickSendEmailRequest struct {
 //|| ClickSend Address struct
 //||------------------------------------------------------------------------------------------------||
 
-func ClickSendPostcard(toAddress verify.Address, verificationUUID string, templatePath string, verifyURL string, checkCode string, clickSendUsername string, clickSendAPIKey string) (string, error) {
+func ClickSendPostcard(toAddress types.Address, verificationUUID string, templatePath string, verifyURL string, checkCode string, clickSendUsername string, clickSendAPIKey string) (string, error) {
 
 	//||------------------------------------------------------------------------------------------------||
 	//|| Create the Back PNG
