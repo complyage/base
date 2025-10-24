@@ -13,44 +13,44 @@ import (
 //|| CreateKey
 //||------------------------------------------------------------------------------------------------||
 
-func CreateKey(key *models.ModelKey) (*models.ModelKey, error) {
-	result := app.SQLDB["main"].DB.Create(key)
+func CreateKey(secret *models.ModelSecrets) (*models.ModelSecrets, error) {
+	result := app.SQLDB["main"].DB.Create(secret)
 	if result.Error != nil {
 		return nil, result.Error
 	}
-	return key, nil
+	return secret, nil
 }
 
 //||------------------------------------------------------------------------------------------------||
 //|| GetKeyByID
 //||------------------------------------------------------------------------------------------------||
 
-func GetKeyByID(id uint) (*models.ModelKey, error) {
-	var key models.ModelKey
-	result := db.AuthDB().First(&key, id)
+func GetKeyByID(id uint) (*models.ModelSecrets, error) {
+	var secret models.ModelSecrets
+	result := db.AuthDB().First(&secret, id)
 	if errors.Is(result.Error, gorm.ErrRecordNotFound) {
 		return nil, nil
 	}
 	if result.Error != nil {
 		return nil, result.Error
 	}
-	return &key, nil
+	return &secret, nil
 }
 
 //||------------------------------------------------------------------------------------------------||
 //|| GetKeysByAccount
 //||------------------------------------------------------------------------------------------------||
 
-func GetKeyByAccount(fidAccount uint) (models.ModelKey, error) {
-	var key models.ModelKey
+func GetKeyByAccount(fidAccount uint) (*models.ModelSecrets, error) {
+	var secret models.ModelSecrets
 	result := db.AuthDB().
 		Where("fid_account = ?", fidAccount).
-		First(&key)
+		First(&secret)
 
 	if result.Error != nil {
-		return models.ModelKey{}, result.Error
+		return nil, result.Error
 	}
-	return key, nil
+	return &secret, nil
 }
 
 //||------------------------------------------------------------------------------------------------||
@@ -59,9 +59,9 @@ func GetKeyByAccount(fidAccount uint) (models.ModelKey, error) {
 
 func UpdateKeyCheck(id uint, newCheck string) error {
 	result := db.AuthDB().
-		Model(&models.ModelKey{}).
-		Where("id_key = ?", id).
-		Update("check_key", newCheck)
+		Model(&models.ModelSecrets{}).
+		Where("id_secret = ?", id).
+		Update("check_secret", newCheck)
 
 	return result.Error
 }
@@ -71,6 +71,6 @@ func UpdateKeyCheck(id uint, newCheck string) error {
 //||------------------------------------------------------------------------------------------------||
 
 func DeleteKey(id uint) error {
-	result := db.AuthDB().Delete(&models.ModelKey{}, id)
+	result := db.AuthDB().Delete(&models.ModelSecrets{}, id)
 	return result.Error
 }

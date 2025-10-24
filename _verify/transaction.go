@@ -1,6 +1,10 @@
 package verify
 
-import "github.com/complyage/base/types"
+import (
+	"time"
+
+	"github.com/complyage/base/types"
+)
 
 //||------------------------------------------------------------------------------------------------||
 //|| Transaction
@@ -14,7 +18,7 @@ type TransactionPrivate struct {
 	Donation     int64             `json:"domationAmount,omitempty"`
 	Total        int64             `json:"totalAmount"`
 	Currency     string            `json:"currency"`
-	Timestamp    string            `json:"timestamp,omitempty"`
+	Timestamp    time.Time         `json:"timestamp,omitempty"`
 	CardType     string            `json:"cardType,omitempty"`
 	LastFour     string            `json:"lastFour,omitempty"`
 	ClientSecret string            `json:"clientSecret,omitempty"`
@@ -32,7 +36,7 @@ type TransactionPublic struct {
 	Status    TransactionStatus `json:"status"`
 	Amount    int64             `json:"amount"`
 	Currency  string            `json:"currency"`
-	Timestamp string            `json:"timestamp,omitempty"`
+	Timestamp time.Time         `json:"timestamp,omitempty"`
 }
 
 //||------------------------------------------------------------------------------------------------||
@@ -112,7 +116,7 @@ func (v *Verification) TransactionApproved(transactionType TransactionType, base
 		Donation:     donation,
 		Total:        total,
 		Currency:     currency,
-		Timestamp:    UniversalNow().String(),
+		Timestamp:    time.Now().UTC(),
 		CardType:     cardType,
 		LastFour:     lastFour,
 		ClientSecret: clientSecret,

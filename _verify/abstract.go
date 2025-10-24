@@ -1,7 +1,6 @@
 package verify
 
 import (
-	"encoding/json"
 	"fmt"
 
 	"github.com/complyage/base/db/models"
@@ -18,29 +17,7 @@ func (v *Verification) DatabaseUpdate() error {
 		fmt.Println("Failed to update verification:", err)
 		return err
 	}
-	err = v.DatabaseSaveIdentity()
-	if err != nil {
-		fmt.Println("Failed to update identity:", err)
-		return err
-	}
 	return nil
-}
-
-//||------------------------------------------------------------------------------------------------||
-//|| Database
-//||------------------------------------------------------------------------------------------------||
-
-func (v *Verification) DatabaseSaveIdentity() error {
-	LogInfo("DATABASE :: SAVE IDENTITY")
-	bytes, err := json.Marshal(v.Identity.Save())
-	if err != nil {
-		LogInfo("Failed to marshal identity")
-		return err
-	}
-	return v.Database.DB.Exec(
-		"UPDATE accounts SET account_identity=? WHERE id_account=?",
-		string(bytes), v.FidAccount,
-	).Error
 }
 
 //||------------------------------------------------------------------------------------------------||

@@ -1,37 +1,30 @@
 package verify
 
 import (
-	"time"
-
 	"github.com/ralphferrara/aria/app"
 )
 
-func panicReject(uuid string, verifyType DataType, err app.ErrorsEntry) Verification {
+//||------------------------------------------------------------------------------------------------||
+//|| Escalate
+//||------------------------------------------------------------------------------------------------||
+
+func (v *Verification) UpdateStatusInProgress() error {
+	app.Log.Info("Verification Status : In Progress - ", v.UUID)
 	//||------------------------------------------------------------------------------------------------||
-	//|| Create a Verification
+	//|| Set Status
 	//||------------------------------------------------------------------------------------------------||
-	verification := Verification{
-		CanReset:      false,
-		ResetAttempts: 9999,
-		Status:        STATUSES.Rejected,
-		UUID:          uuid,
-		Type:          verifyType,
-		Timestamp:     time.Now().UTC(),
-	}
+	v.Status = StatusInProgress
 	//||------------------------------------------------------------------------------------------------||
-	//|| Steps
+	//|| Two Factor Approved
 	//||------------------------------------------------------------------------------------------------||
-	verification.StepsInit()
-	verification.Step = 9999
-	verification.AddStep(app.Constants("VERIFY_STEP_TYPES").Get("PANIC_REJECT"), err.Message)
+	v.AddStep(app.Constants("VERIFY_STEP_TYPES").Get("STATUS_INPR"), "")
 	//||------------------------------------------------------------------------------------------------||
-	//|| Create a Verification
+	//|| Lock the Encrypted Data and Update the Database / Storage
 	//||------------------------------------------------------------------------------------------------||
-	verification.UpdateStatusReject("SYSTEM", app.Err("verify").Get("VERIFY_PANIC"))
-	verification.Save()
-	verification.SaveEncrypted()
+	v.Save()
+	v.DatabaseUpdate()
 	//||------------------------------------------------------------------------------------------------||
-	//|| Create a Verification
+	//|| Done
 	//||------------------------------------------------------------------------------------------------||
-	return verification
+	return nil
 }
